@@ -1,4 +1,6 @@
-module.exports = function (title, color, desc, image) {
+const { MessageEmbed } = require('discord.js');
+
+module.exports = function (message) {
     const embed = new MessageEmbed()
     .setTitle('Message from ALOE')
     .setColor(0xff0000)

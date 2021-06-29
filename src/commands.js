@@ -1,6 +1,8 @@
 const message = require('./commands/message');
+const gif = require('./commands/gif');
+const ayayay = require('./commands/ayayay');
 
-const commands = { message };
+const commands = { message, gif, ayayay };
 
 module.exports = async function (message) {
     let tokens = message.content.split(" ");
