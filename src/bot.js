@@ -22,7 +22,7 @@ client.on('ready', () => {
         .setDescription(h_msg[randomIndex]);
       message.channel.send(embed);
     }
-    if(message.content == "AYAYAY") {
+    else if (message.content == "AYAYAY") {
         const embed = new MessageEmbed()
         .setTitle('Message from ALOE')
         .setColor(0xff0000)
