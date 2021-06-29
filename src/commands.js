@@ -1,6 +1,5 @@
-const message = require('./commands/message');
-const gif = require('./commands/gif');
-const ayayay = require('./commands/ayayay');
+"use strict"
+const { message, ayayay, gif } = require("./commands/index")
 
 const commands = { message, gif, ayayay };
 
@@ -9,6 +8,7 @@ module.exports = async function (message) {
     let command = tokens.shift();
     if (command.charAt(0) == ';') {
         command = command.substring(1);
+        console.log(command)
         commands[command](message, tokens);
     }
 };
