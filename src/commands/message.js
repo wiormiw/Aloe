@@ -6,7 +6,7 @@ const h_msg = [
     '~Ohayou~ :sunglasses:'
 ];
 
-module.exports = function(args){
+module.exports = function(message, args){
     const embed = new MessageEmbed()
     .setTitle('Message from ALOE')
     .setColor(0xff0000)
