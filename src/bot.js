@@ -1,41 +1,34 @@
 require('dotenv').config();
 
-const { Client, MessageEmbed } = require('discord.js');
+const { Client } = require('discord.js');
 
 const client = new Client();
 
-const h_msg = [
-    'Nanika? :face_with_raised_eyebrow:',
-    '~Ohayou~ :sunglasses:'
-];
-
+const commandHandler = require('./commands');
+  
 client.on('ready', () => {
-    console.log(`Logged in as ${client.user.tag}!`);
-  });
-  
-  client.on('message', message => {
-    let randomIndex = Math.floor(Math.random() * h_msg.length);
-    if (message.content === 'Hello, Aloe!') {
-      const embed = new MessageEmbed()
-        .setTitle('Message from ALOE')
-        .setColor(0xff0000)
-        .setDescription(h_msg[randomIndex]);
-      message.channel.send(embed);
-    }
-    else if (message.content == "AYAYAY") {
-        const embed = new MessageEmbed()
-        .setTitle('Message from ALOE')
-        .setColor(0xff0000)
-        .setDescription('_AYAYAYAYAYAYAY_')
-        .setImage('https://s2.dmcdn.net/v/I0sW11O5mm8OVPv9t/x1080')
-        message.channel.send(embed);
-    }
-  });
+  client.user.setPresence({
+    activity: { 
+        name: 'Senpai',
+        type: 'WATCHING'
+    },
+    status: 'idle'
+  })
+});
 
-  client.on('guildMemberAdd', member => {
-    const channel = member.guild.channels.cache.find(ch => ch.name === 'announcement');
-    if (!channel) return;
-    channel.send(`Welcome to the server, ${member}`);
-  });
-  
-  client.login(process.env.BOT_TOKEN);
+client.on('message', commandHandler);
+
+client.on("guildMemberAdd", (member) => {
+  const guild = member.guild;
+  newUsers.set(member.id, member.user);
+
+  if (newUsers.size > 10) {
+    const defaultChannel = guild.channels.cache.find(channel => channel.permissionsFor(guild.me).has("SEND_MESSAGES"));
+    const userlist = newUsers.map(u => u.toString()).join(" ");
+    defaultChannel.send("Welcome our new users!\n" + userlist);
+    newUsers.clear();
+  }
+});
+
+
+client.login(process.env.BOT_TOKEN);
