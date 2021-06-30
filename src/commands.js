@@ -1,7 +1,7 @@
 "use strict"
-const { message, ayayay, gif } = require("./commands/index")
+const { message, ayayay, gif, nickname } = require("./commands/index")
 
-const commands = { message, gif, ayayay };
+const commands = { message, gif, ayayay, nickname };
 
 module.exports = async function (message) {
     let tokens = message.content.split(" ");

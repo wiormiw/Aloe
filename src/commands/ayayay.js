@@ -2,11 +2,13 @@
 
 const { MessageEmbed } = require('discord.js');
 
-module.exports = function (message) {
+module.exports = 
+function (message) {
     const embed = new MessageEmbed()
     .setTitle('Message from ALOE')
     .setColor(0xff0000)
     .setDescription('_AYAYAYAYAYAYAY_')
-    .setImage('https://s2.dmcdn.net/v/I0sW11O5mm8OVPv9t/x1080')
+    .setImage('https://media1.tenor.com/images/77dbea24386c8908e8fcfdab9a31f679/tenor.gif?itemid=15161246')
+    .setTimestamp()
     message.channel.send(embed);
 }
