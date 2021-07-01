@@ -6,15 +6,15 @@ const random = require('../utils/randomFunction');
 const h_msg = [
     'Nanika? :face_with_raised_eyebrow:',
     '~Ohayou~ :sunglasses:',
-    'Senpaaaaaai! :blush:'
+    'Senpaaaaaai! :blush:',
+    'Kyaaaaa~ :laughing:',
 ];
 
 module.exports = function(message){
-    let words = h_msg[random(h_msg)];
     const embed = new MessageEmbed()
     .setTitle('Message from ALOE')
     .setColor(0xff0000)
-    .setDescription(words)
+    .setDescription(h_msg[random(h_msg)])
     .setTimestamp()
     message.channel.send(embed);
 } 
