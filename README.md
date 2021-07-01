@@ -3,4 +3,6 @@
 ## Aloe Discord Bot
 
 To Start:
-```npm run start```
+```
+npm run start
+```
